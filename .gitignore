@@ -1,0 +1,48 @@
+
+
+### Node ###
+
+# Logs
+**/*.log*
+
+# Dependency directories
+**/node_modules/
+**/jspm_packages/
+
+# dotenv environment variables file
+**/.env
+
+# Serverless directories
+**/.serverless/
+
+### OSX ###
+**/*.DS_Store
+.AppleDouble
+.LSOverride
+
+
+
+# Terraform
+# Local .terraform directories
+**/.terraform/*
+
+# State files
+**/*.tfstate
+**/*.tfstate.*
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+**/override.tf
+**/override.tf.json
+**/*_override.tf
+**/*_override.tf.json
+
+# Ignore CLI configuration files
+# .terraformrc
+**/terraform.rc
+**/access_key*
+**/init.config
+
+**/*lock.hcl
+
+**/provider.tf
