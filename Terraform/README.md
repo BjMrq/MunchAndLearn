@@ -72,7 +72,7 @@ Terraform need to keep track of the "state" of our system, it does it in a state
 ```
 terraform init
 ```
-Notice we pass the configuration variables used to initiate the backend from ```init.config``` file
+Notice the new ```.terraform``` folder that also contain our state file
 
 #### Plan
 When we run a plan command, Terraform first refresh our state and then determines what actions are necessary to achieve the desired state specified in the configuration files.
