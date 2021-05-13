@@ -54,11 +54,11 @@ Terraform is an open source IaC resource provisioning tool, written in Go and de
 
 Terraform works by reading the code describing your infrastructure and generating a graph containing all resources with their mutual relationships. It then compares it to the state of the resources it holds, and prepares an execution plan that details what will be applied to the cloud, and in what order, to reach the desired state, then it apply those modifications and update the states it holds.
 
-- State
+- Initial State
 - Read
 - Plan
 - Apply 
-- State
+- New State
 
 ## Flow 
 
@@ -68,7 +68,7 @@ Let's deploy a static application into a s3 bucket served by a cloudfront distri
 We first need to deploy the infrastructure needed to serve our application, let's do it with terraform
 
 #### Init Backend
-Terraform need to keep track of the "state" of our system, it does it in a state file that can be in different places, terraform cloud or a s3 bucket or on local environment (in this example simply local environment, but not recommended if working with others)
+Terraform need to keep track of the "state" of our system, it does it in a state file that can be in different places, in terraform cloud or a in s3 bucket or on local environment (in this example simply local environment, but not recommended if you are working with others and you need the state to be shared)
 ```
 terraform init
 ```
@@ -101,5 +101,10 @@ npm run build
 #### Deploy 
 Deploy the builded application (in build folder) in the s3 bucket
 ```
-aws s3 sync build s3://wiki-app-dev
+aws s3 sync built_folder s3://wiki-app-dev
 ```
+
+
+## Terraform Cloud
+When working with a team you can not rely on state in a local environment, you need to be able to share this state and is different apply are triggered in the same time to be able to queue them accordingly.
+For this we can use [Terraform Cloud](https://www.terraform.io/cloud).
